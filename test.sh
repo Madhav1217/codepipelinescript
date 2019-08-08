@@ -1,8 +1,8 @@
 #!/bin/bash
-aws codepipeline start-pipeline-execution --name fristpipeline >> fristpipeline.log 2>&1
-data=$(grep "pipelineExecutionId" fristpipeline.log)
+aws codepipeline start-pipeline-execution --name firstpipeline >> firstpipeline.log 2>&1
+data=$(grep "pipelineExecutionId" firstpipeline.log)
 pipelineid=$(echo "$data" | sed 's/.*| \(.*\)|/\1/')
-rm -rf fristpipeline.log
+rm -rf firstpipeline.log
 echo $pipelineid
 while true
 do
