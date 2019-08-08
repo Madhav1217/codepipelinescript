@@ -1,8 +1,12 @@
 #!/bin/bash
-aws codepipeline start-pipeline-execution --name firstpipeline >> firstpipeline.log 2>&1
-data=$(grep "pipelineExecutionId" firstpipeline.log)
+aws configure set aws_access_key_id AKIAI2L5XM3WEEKX7EZA
+aws configure set aws_secret_access_key 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
+aws configure set default.region us-east-2
+aws configure set output_format table
+aws codepipeline start-pipeline-execution --name fristpipeline >> fristpipeline.log 2>&1
+data=$(grep "pipelineExecutionId" fristpipeline.log)
 pipelineid=$(echo "$data" | sed 's/.*| \(.*\)|/\1/')
-rm -rf firstpipeline.log
+rm -rf fristpipeline.log
 echo $pipelineid
 while true
 do
